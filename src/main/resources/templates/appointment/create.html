@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Create appointment</title>
+</head>
+<form th:object="${appointment}" th:action="@{/appointment/create}" method="post">
+<body>
+<table class="table table-striped-columns">
+    <thead>
+    <tr>
+        <th> Id </th>
+        <th> Name </th>
+        <th> Specialisation </th>
+        <th> Select Date </th>
+        <th> Create Appointment </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${doctors.empty}">
+        <td colspan="2"> No Appointments registered </td>
+    </tr>
+    <tr th:each="doctor : ${doctors}">
+        <td class="doctorId"><span th:text="${doctor.id}"> Id </span></td>
+        <td class="doctorName"><span th:text="${doctor.name}"> Doctor Name </span></td>
+        <td><span th:text="${doctor.specialisation}"> Specialisation </span></td>
+        <td>
+            <input type="datetime-local" th:object="${date}" class="form-control"
+                   id="date"/>
+        </td>
+        <td>
+            <form action="#" th:action="@{/appointment/} + ${{doctor.id}}" method="post">
+                <button type="submit">
+                    Create Appointment
+                </button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
