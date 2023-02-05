@@ -25,7 +25,7 @@ public class Appointment {
     private Doctor doctor;
 
     public AppointmentDto toDto(){
-        String dateFormat = "MMM dd HH:mm";
+        String dateFormat = "yyyy-MM-dd HH:mm";
         String formattedDate = date.format(DateTimeFormatter.ofPattern(dateFormat));
 
         return AppointmentDto
@@ -36,12 +36,6 @@ public class Appointment {
                 .doctor(doctor)
                 .build();
     }
-
-//
-//    public void saveAppointment(CreateAppointmentDto createAppointmentDto) {
-//        Appointment appointment = mapDtoToModel(createAppointmentDto);
-//        appointmentsRepository.save(appointment);
-//    }
 
     public static Appointment mapDtoToModel(CreateAppointmentDto createAppointmentDto) {
         return Appointment
