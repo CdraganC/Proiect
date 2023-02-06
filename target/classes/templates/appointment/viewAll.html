@@ -16,9 +16,9 @@
     <thead>
     <tr>
         <th> Id</th>
-        <th> Date</th>
-        <th> Doctor name</th>
-        <th> Delete</th>
+        <th style="text-align: center;">Date</th>
+        <th style="text-align: center; white-space: nowrap;">Doctor name</th>
+        <th style="text-align: center;">Delete</th>
     </tr>
     </thead>
     <tbody>
@@ -27,8 +27,10 @@
     </tr>
     <tr th:each="appointment : ${appointments}">
         <td class="appointmentId" th:text="${appointment.id}"> Id</td>
-        <td th:text="${appointment.date}"> Name</td>
-        <td th:text="${appointment.doctor.name}"> Name</td>
+
+        <td th:text="${appointment.date}" style="white-space: nowrap;"> Name</td>
+
+        <td style="text-align: center; white-space: nowrap;" th:text="${appointment.doctor.name}">Name</td>
         <td>
             <button class="delete-appointment-button"> Delete appointment</button>
         </td>

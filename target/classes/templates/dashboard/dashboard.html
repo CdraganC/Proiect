@@ -28,6 +28,19 @@
     </div>
     <br/>
     <div class="row d-flex content-center">
+        <button class="btn btn-primary" th:if="${isPatient}" onclick="window.location.href='/appointment/findAllByPatient';">
+            Previous Appointments
+        </button>
+    </div>
+    <br/>
+    <div class="row d-flex content-center">
+        <button class="btn btn-primary" th:if="${isPatient}"
+                onclick="window.location.href='/medication/viewAll';">
+            Medication history
+        </button>
+    </div>
+    <br/>
+    <div class="row d-flex content-center">
         <button class="btn btn-primary" th:if="${isAdmin}" onclick="window.location.href='/mvc/doctor/createDoctor';">
             Create a doctor
         </button>
